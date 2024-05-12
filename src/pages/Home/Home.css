@@ -1,0 +1,12 @@
+.sl {
+    width: 1000px;
+    height: 900px;
+    margin: 20px auto;
+}
+
+.sl-block {
+    width: 900px;
+}
+.sl-block img {
+    width: 100%;
+}

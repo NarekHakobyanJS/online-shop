@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
+import Home from './pages/Home/Home';
+import Products from './pages/Products/Products';
+import Loyout from './components/Loyout/Loyout';
+import { useState } from 'react';
+import Cards from './pages/Cards/Cards';
+
+function App({ products }) {
+  const [card, setCard] = useState([]);
+  
+  const addToCard = (product) => {
+    let isInArray = false
+
+    card.forEach((el) => {
+      if (el.id === product.id) {
+        isInArray = true 
+        setCard(card.map((el) => {
+          return {
+            ...el,
+            count : ++el.count,
+            priceAdd : el.price * el.count
+          }
+        }))
+      }
+    })
+
+    if (!isInArray)
+      setCard((prev) => {
+        return [...prev, product]
+      })
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path='/' element={<Loyout card={card} />}>
+          <Route index element={<Home />} />
+          <Route path='/products' element={<Products products={products} addToCard={addToCard} />} />
+          <Route path='/cards' element={<Cards card={card} /> }/>
+        </Route>
+      </Routes>
     </div>
   );
 }

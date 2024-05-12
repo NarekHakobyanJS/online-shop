@@ -1,0 +1,20 @@
+.card-block {
+    width: 550px;
+    border : 1px solid gray;
+    display: flex;
+    align-items: center;
+}
+
+.left-card{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.left-card > img {
+    width: 220px;
+}
+
+.right-card {
+    display: flex;
+}

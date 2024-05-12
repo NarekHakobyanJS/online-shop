@@ -1,0 +1,22 @@
+.open{
+    position: absolute;
+    top : 62px;
+    right: 0;
+    width: 250px;
+    height: 400px;
+    background: white;
+    z-index: 1000;
+    overflow-y: scroll;
+}
+
+.open-block{
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+}
+
+.open-block img {
+    width: 70px;
+}

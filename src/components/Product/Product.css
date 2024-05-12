@@ -1,0 +1,23 @@
+.prod{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 280px;
+    border : 1px solid gray;
+    padding: 15px;
+    border-radius: 26px;
+    gap: 10px;
+}
+
+.prod > img {
+    width: 80%;
+}
+
+.prod > button {
+    padding: 15px;
+    font-size: 19px;
+    font-weight: 700;
+    background: gold;
+    border : none;
+    cursor: pointer;
+}
