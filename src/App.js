@@ -6,8 +6,10 @@ import Products from './pages/Products/Products';
 import Loyout from './components/Loyout/Loyout';
 import { useState } from 'react';
 import Cards from './pages/Cards/Cards';
+import Login from './pages/Login/Login';
+import Profile from './pages/Profile/Profile';
 
-function App({ products }) {
+function App({ products, users }) {
   const [card, setCard] = useState([]);
 
   const addToCard = (product) => {
@@ -49,10 +51,12 @@ function App({ products }) {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Loyout card={card} />}>
+        <Route path='/' element={<Loyout card={card} users={users}/>}>
           <Route index element={<Home />} />
           <Route path='/products' element={<Products products={products} addToCard={addToCard} />} />
           <Route path='/cards' element={<Cards card={card} BTNSClick={BTNSClick} />} />
+          <Route path='/login' element={<Login users={users}/> }/>
+          <Route path='/profile' element={<Profile /> }/>
         </Route>
       </Routes>
     </div>

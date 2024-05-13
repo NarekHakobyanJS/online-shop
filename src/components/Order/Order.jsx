@@ -43,7 +43,7 @@ const Order = () => {
                 onSubmit={(res) => console.log(res)}
                 validationSchema={validateOrder}
             >
-                {({ }) => (
+                {({ isValid }) => (
                     <Form className='order-form'>
                         <Field name='name' placeholder='name' />
                         <ErrorMessage name='name' />
@@ -53,7 +53,7 @@ const Order = () => {
                         <ErrorMessage name='phone' />
                         <Field name='email' placeholder='email' />
                         <ErrorMessage name='email' />
-                        <button type='submit'>Գնել</button>
+                        <button onClick={() => alert(1)} disabled={!isValid} type='submit'>Գնել</button>
                     </Form>
                 )}
             </Formik>

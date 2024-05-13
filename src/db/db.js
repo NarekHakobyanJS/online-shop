@@ -287,3 +287,9 @@ export const slider = [
     'https://static01.nyt.com/images/2021/09/21/business/21techfix-phones/21techfix-phones-superJumbo.jpg',
     'https://repairlogic.gr/wp-content/uploads/2022/12/Apple-iPhone13-Pro-color-lineup.webp'
 ]
+
+export const users = [
+  {id : 1, name : "Ashot", password : '1234'},
+  {id : 2, name : "Ani", password : '1234'},
+  {id : 3, name : "Avet", password : '1234'},
+]

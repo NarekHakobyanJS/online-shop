@@ -2,11 +2,17 @@ import React, { useState } from 'react'
 import './Header.css'
 import { NavLink } from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 import './Header.css'
-import PopupCard from '../PopupCard/PopupCard';
-const Header = ({ card }) => {
-    const [open, setOpen] = useState(false);
 
+const Header = ({ card, users }) => {
+
+
+    //// useri logikan pti stugvi stex 
+    
+    const [open, setOpen] = useState(false);
+    let user = "Hakob1234"
+    
     const openCard = () => {
         setOpen(!open)
     }
@@ -15,17 +21,16 @@ const Header = ({ card }) => {
             <nav>
                 <NavLink to='/'>home</NavLink>
                 <NavLink to='/products'>products</NavLink>
-                <NavLink to='/cards'>carts</NavLink>
-                <NavLink to='/profile'></NavLink>
-                <NavLink></NavLink>
             </nav>
-            <div className='header-card' onClick={openCard}>
-                <FaShoppingCart />
-                {card.length}
+            <div className='header-card'>
+                <NavLink to='/cards'>
+                    <FaShoppingCart />
+                </NavLink>
+                <NavLink to={user === "Hakob123" ? '/profile' : '/login'}>
+                    <FaUserAlt />
+                </NavLink>
             </div>
-            {
-                open && <PopupCard card={card}/>
-            }
+
         </header>
     )
 }
