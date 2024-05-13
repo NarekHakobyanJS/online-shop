@@ -1,34 +1,34 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Card.css'
 
-const Card = ({ c, }) => {
+const Card = ({ c, BTNSClick }) => {
 
-    console.log(c.priceAdd, c.count, c.price);
-    // let [price, setPrice] = useState(c.price)
-    // let [count, setCount] = useState(1)
+    // console.log(c.priceAdd, c.count, c.price);
+    let countProps = c.count
 
-    
-    const plusToPrice = () => { 
-    //     setCount(++count)
+    console.log(countProps);
+    let [count, setCount] = useState(c.count)
 
-    //     setPrice((prev) => {
-    //         return c.price * count
-    //     })
+
+    useEffect(() => {
+        plusToPrice()
+        minusToPrice()
+    }, [count])
+
+    const plusToPrice = () => {
+        // console.log(count);
+        setCount(++count)
+        BTNSClick(count, c.id)
     }
 
 
     const minusToPrice = () => {
-    //     if (count > 1) {
-    //         setCount(--count)
-    //         setPrice((prev) => {
-    //             return c.price * count
-    //         })
-    //     }
-     }
+        if (count > 0) {
+            setCount(--count)
+            BTNSClick(count, c.id)
+        }
+    }
 
-    // setReduce((prev) => [...prev, price])
-    // reduce.push(price)
-    // console.log(price);
     return (
         <>
             <div className='card-block'>
@@ -42,7 +42,7 @@ const Card = ({ c, }) => {
                     {/* <h1>{count}</h1> */}
                     <button onClick={minusToPrice}>-</button>
                 </div>
-                
+
             </div>
         </>
     )

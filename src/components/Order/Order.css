@@ -1,0 +1,15 @@
+.order-form {
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    gap : 10px;
+}
+
+.order-form > input {
+    padding: 8px;
+}
+
+.order-form > button {
+    padding: 8px;
+    font-size: 19px;
+}

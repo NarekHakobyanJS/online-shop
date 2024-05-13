@@ -9,18 +9,18 @@ import Cards from './pages/Cards/Cards';
 
 function App({ products }) {
   const [card, setCard] = useState([]);
-  
+
   const addToCard = (product) => {
     let isInArray = false
 
     card.forEach((el) => {
       if (el.id === product.id) {
-        isInArray = true 
+        isInArray = true
         setCard(card.map((el) => {
           return {
             ...el,
-            count : ++el.count,
-            priceAdd : el.price * el.count
+            count: ++el.count,
+            priceAdd: el.price * el.count
           }
         }))
       }
@@ -31,13 +31,28 @@ function App({ products }) {
         return [...prev, product]
       })
   }
+
+  const BTNSClick = (countBTN, id) => {
+    setCard(card.map((el) => {
+      if (el.id === id) {
+        return {
+          ...el,
+          count: countBTN,
+          priceAdd: el.price * el.count
+        }
+      } else {
+        return el
+      }
+    }))
+  }
+
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Loyout card={card} />}>
           <Route index element={<Home />} />
           <Route path='/products' element={<Products products={products} addToCard={addToCard} />} />
-          <Route path='/cards' element={<Cards card={card} /> }/>
+          <Route path='/cards' element={<Cards card={card} BTNSClick={BTNSClick} />} />
         </Route>
       </Routes>
     </div>
