@@ -4,7 +4,7 @@ import './Cards.css'
 
 import Order from '../../components/Order/Order'
 
-const Cards = ({card, BTNSClick}) => {
+const Cards = ({card, BTNSClick, setOpenFN}) => {
   const allPrice = card.reduce((accum, el) => el.priceAdd + accum, 0)
   return (
     <div className='cards'>
@@ -17,7 +17,7 @@ const Cards = ({card, BTNSClick}) => {
             }
         </div>
         <div className='order'>
-          <Order />
+          <Order setOpenFN={setOpenFN}/>
           <h3> @ndhanur gumare ______ {allPrice} $</h3>
         </div>
     </div>

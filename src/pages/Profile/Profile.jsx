@@ -3,8 +3,11 @@ import { useLocation } from 'react-router-dom'
 
 const Profile = () => {
    const {state} = useLocation()
+   console.log(state);
   return (
-    <div>Profile</div>
+    <div>
+        <h1>{state.name}</h1>
+    </div>
   )
 }
 

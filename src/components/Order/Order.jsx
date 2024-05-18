@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Order.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as YUP from 'yup';
 
 
-const Order = () => {
+const Order = ({setOpenFN}) => {
+    
     const validateOrder = YUP.object().shape({
         name: YUP
             .string()
@@ -28,6 +29,11 @@ const Order = () => {
         region: '',
         // city: '',
     })
+
+    const orederBlock = (values) => {
+        // console.log(values);
+        setOpenFN(values)
+    }
     return (
         <div>
             <h2>Առաքման տվյալներ</h2>
@@ -40,7 +46,7 @@ const Order = () => {
                     region: '',
                     // city: '',
                 }}
-                onSubmit={(res) => console.log(res)}
+                onSubmit={(res) => orederBlock(res)}
                 validationSchema={validateOrder}
             >
                 {({ isValid }) => (
