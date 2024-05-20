@@ -379,10 +379,16 @@ function App({ users }) {
     }))
   }
 
+
+
+  let prod = products 
+  const filterProducts = (category) => {
+    setProducts(prod.filter((el) => el.category === category))
+  }
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Loyout card={card} users={users}/>}>
+        <Route path='/' element={<Loyout card={card} users={users} filterProducts={filterProducts}/>}>
           <Route index element={<Home />} />
           <Route path='/products' element={<Products products={products} addToCard={addToCard} countRepetItem={countRepetItem}/>} />
           <Route path='/cards' element={<Cards card={card} BTNSClick={BTNSClick} setOpenFN={setOpenFN}/>} />
